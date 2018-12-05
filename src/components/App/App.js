@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './../../main.scss'
 import ScrollingText from './../ScrollingText/ScrollingText'
 import Navigation from './../Navigation/Navigation'
+import CardContainer from './../CardContainer/CardContainer'
 
 class App extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class App extends Component {
     this.state = {
       scrollingText: false,
       navigation: false,
+      cardContainerType: '',
       openingCrawl: {
         episode: '',
         title: '',
@@ -35,9 +37,7 @@ class App extends Component {
   }
 
   handleChangeScrollingTextState = () => {
-    this.setState({
-      scrollingText: true
-    })
+    this.setState({scrollingText: true})
   }
 
   handleChangeMainPageState = () => {
@@ -45,6 +45,10 @@ class App extends Component {
       scrollingText: false,
       navigation: true
     })
+  }
+
+  handleNavigationClick = (event) => {
+    this.setState({cardContainerType: event.currentTarget.name})
   }
 
   returnScrollingTextOnStateChange = () => {
@@ -74,7 +78,7 @@ class App extends Component {
 
   renderNavigationOnStateChange = () => {
     if (this.state.navigation) {
-      return <Navigation />
+      return <Navigation  handleNavigationClick={this.handleNavigationClick}/>
     } else {
       return undefined
     }
@@ -89,6 +93,7 @@ class App extends Component {
         { this.togglePlayButtonOnStateChange() }
         { this.returnScrollingTextOnStateChange() }
         { this.renderNavigationOnStateChange() }
+        <CardContainer cardContainerType={this.state.cardContainerType} />
       </div>
     );
   }
