@@ -24,7 +24,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "sass": "^1.15.1",
-    "webpack": "^4.26.1"
+    "sass": "^1.15.1"
   }
 }
