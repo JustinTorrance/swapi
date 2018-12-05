@@ -8,8 +8,30 @@ class App extends Component {
     super();
     this.state = {
       scrollingText: false,
-      navigation: false
+      navigation: false,
+      openingCrawl: {
+        episode: '',
+        title: '',
+        body: ''
+      }
     }
+  }
+
+  async componentDidMount() {
+    const randomizer = Math.ceil(Math.random() * 7);
+    const url = `https://swapi.co/api/films/${randomizer}/`;
+    const response = await fetch(url);
+    const film = await response.json();
+    const body = film.opening_crawl;
+    const episode = film.episode_id;
+    const title = film.title;
+      this.setState({ 
+        openingCrawl: {
+          episode: episode,
+          title: title,
+          body: body
+        }   
+      })
   }
 
   handleChangeScrollingTextState = () => {
@@ -26,8 +48,9 @@ class App extends Component {
   }
 
   returnScrollingTextOnStateChange = () => {
+    console.log(this.state.openingCrawl)
     if (this.state.scrollingText) {
-      return <ScrollingText />
+      return <ScrollingText openingCrawl={this.state.openingCrawl} />
     } else {
       return undefined
     }
