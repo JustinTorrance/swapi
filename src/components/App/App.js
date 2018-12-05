@@ -20,6 +20,15 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    this.fetchFilmScrollingText()
+    this.fetchPeople()
+  }
+
+  fetchPeople = async () => {
+    const url = ''
+  }
+
+  fetchFilmScrollingText = async () => {
     const randomizer = Math.ceil(Math.random() * 7);
     const url = `https://swapi.co/api/films/${randomizer}/`;
     const response = await fetch(url);
