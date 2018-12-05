@@ -25,9 +25,6 @@ class App extends Component {
     this.fetchPeople()
   }
 
-
-
-
   fetchPersonSpecies = async (people) => {
     const unresolvedPromises = people.map(async person => {
       const response = await fetch(person.species)
@@ -46,29 +43,6 @@ class App extends Component {
       person
     })
   }
-
-
-  // fetchData = (data) => {
-  //   const unresolvedPromises = data.map(async staff => {
-  //     const response  = await fetch(staff.info)
-  //     const data = await response.json()
-  //     return {...data, name: staff.name}
-  //   })
-  //   return Promise.all(unresolvedPromises)
-  // }
-
-  // async componentDidMount() {
-  //   const url = 'http://localhost:3001/api/frontend-staff'
-  //   const response = await fetch(url)
-  //   const data = await response.json()
-  //   const staff = await this.fetchData(data.bio)
-  //     this.setState({ staff })
-  // }
-
-
-
-
-
 
   fetchFilmScrollingText = async () => {
     const randomizer = Math.ceil(Math.random() * 7);
