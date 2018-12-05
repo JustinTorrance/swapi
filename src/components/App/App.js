@@ -15,7 +15,8 @@ class App extends Component {
         episode: '',
         title: '',
         body: ''
-      }
+      },
+      person: []
     }
   }
 
@@ -24,13 +25,47 @@ class App extends Component {
     this.fetchPeople()
   }
 
+
+
+
+  fetchPersonSpecies = async (people) => {
+    const unresolvedPromises = people.map(async person => {
+      const response = await fetch(person.species)
+      const data = await response.json()
+      return {person: person.name, species: data.name}
+    })
+    return Promise.all(unresolvedPromises)
+  }
+
   fetchPeople = async () => {
     const url = 'https://swapi.co/api/people/';
     const response = await fetch(url);
     const people = await response.json();
-    console.log(people)
-
+    const person = await this.fetchPersonSpecies(people.results)
+    this.setState({
+      person
+    })
   }
+
+
+  // fetchData = (data) => {
+  //   const unresolvedPromises = data.map(async staff => {
+  //     const response  = await fetch(staff.info)
+  //     const data = await response.json()
+  //     return {...data, name: staff.name}
+  //   })
+  //   return Promise.all(unresolvedPromises)
+  // }
+
+  // async componentDidMount() {
+  //   const url = 'http://localhost:3001/api/frontend-staff'
+  //   const response = await fetch(url)
+  //   const data = await response.json()
+  //   const staff = await this.fetchData(data.bio)
+  //     this.setState({ staff })
+  // }
+
+
 
 
 
