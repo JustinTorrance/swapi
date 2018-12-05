@@ -15,11 +15,36 @@ class App extends Component {
         episode: '',
         title: '',
         body: ''
-      }
+      },
+      person: []
     }
   }
 
   async componentDidMount() {
+    this.fetchFilmScrollingText()
+    this.fetchPeople()
+  }
+
+  fetchPersonSpecies = async (people) => {
+    const unresolvedPromises = people.map(async person => {
+      const response = await fetch(person.species)
+      const data = await response.json()
+      return {person: person.name, species: data.name}
+    })
+    return Promise.all(unresolvedPromises)
+  }
+
+  fetchPeople = async () => {
+    const url = 'https://swapi.co/api/people/';
+    const response = await fetch(url);
+    const people = await response.json();
+    const person = await this.fetchPersonSpecies(people.results)
+    this.setState({
+      person
+    })
+  }
+
+  fetchFilmScrollingText = async () => {
     const randomizer = Math.ceil(Math.random() * 7);
     const url = `https://swapi.co/api/films/${randomizer}/`;
     const response = await fetch(url);
@@ -52,7 +77,6 @@ class App extends Component {
   }
 
   returnScrollingTextOnStateChange = () => {
-    console.log(this.state.openingCrawl)
     if (this.state.scrollingText) {
       return <ScrollingText openingCrawl={this.state.openingCrawl} />
     } else {
