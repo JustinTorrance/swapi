@@ -25,8 +25,15 @@ class App extends Component {
   }
 
   fetchPeople = async () => {
-    const url = ''
+    const url = 'https://swapi.co/api/people/';
+    const response = await fetch(url);
+    const people = await response.json();
+    console.log(people)
+
   }
+
+
+
 
   fetchFilmScrollingText = async () => {
     const randomizer = Math.ceil(Math.random() * 7);
@@ -61,7 +68,6 @@ class App extends Component {
   }
 
   returnScrollingTextOnStateChange = () => {
-    console.log(this.state.openingCrawl)
     if (this.state.scrollingText) {
       return <ScrollingText openingCrawl={this.state.openingCrawl} />
     } else {
