@@ -33,18 +33,20 @@ class Card extends Component {
         <div className='Card' onClick={() => this.handleCardClick()}>
           <div className='card-info'>
             <table className='card-info-table'>
-              <tr>
-                <th className='card-info-table-name'>Name</th>
-              </tr>
-              <tr>
-                <td className='card-info-table-species'>Species</td>
-              </tr>
-              <tr>
-                <td className='card-info-table-language'>Language</td>              
-              </tr>
-              <tr>
-                <td className='card-info-table-data'>Data</td>              
-              </tr>
+              <tbody>
+                <tr>
+                  <th className='card-info-table-name'>Name</th>
+                </tr>
+                <tr>
+                  <td className='card-info-table-species'>Species</td>
+                </tr>
+                <tr>
+                  <td className='card-info-table-language'>Language</td>              
+                </tr>
+                <tr>
+                  <td className='card-info-table-data'>Data</td>              
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>

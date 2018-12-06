@@ -9,6 +9,7 @@
 .card-favorite {
   float: right;
   margin: 10px;
+  margin-left: 100%;
 }
 
 .card-image {
@@ -25,6 +26,9 @@
 
 .card-info-table {
   height: 100%;
+  margin: 0 auto;
+  text-align: left;
+  width: 80%;
 
   .card-info-table-name,
   .card-info-table-species,
