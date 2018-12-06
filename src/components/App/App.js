@@ -17,7 +17,7 @@ class App extends Component {
         title: '',
         body: ''
       },
-      person: []
+      characters: []
     }
   }
 
@@ -26,31 +26,44 @@ class App extends Component {
     this.fetchPeople()
   }
 
-
-
-
-  fetchPersonSpecies = async (people) => {
-    const unresolvedPromises = people.map(async person => {
+  fetchSpecies = async (person) => {
       const response = await fetch(person.species)
-      const data = await response.json()
-      const homePlanet = await this.fetchHomePlanet(person)
-      return {person: person.name, species: data.name, homePlanet: homePlanet }
-    })
-    return Promise.all(unresolvedPromises)
-  }
-
-  fetchHomePlanet = async (person) => { 
-      const response = await fetch(person.homeworld)
-      const data = await response.json()
-      return Promise.resolve(data.name)
+      const species = await response.json()
+      return species.name 
   }
 
   fetchPeople = async () => {
     const url = 'https://swapi.co/api/people/';
     const response = await fetch(url);
     const people = await response.json();
-    const person = await this.fetchPersonSpecies(people.results)
-    this.setState({ person })
+    const personData = await this.fetchNestedPeopleData(people.results)
+    this.setState({
+      characters: personData
+    })
+    return Promise.all(personData)
+  }
+
+  fetchHomeWorld = async (person) => { 
+    const response = await fetch(person.homeworld)
+    const world = await response.json()
+    return {
+      homeWorldName: world.name,
+      homeWorldPopulation: world.population
+    }
+  }
+
+  fetchNestedPeopleData = async (people) => {
+    const unresolvedPromises = await people.map(async person => {
+      const homeworld = await this.fetchHomeWorld(person)
+      const species = await this.fetchSpecies(person)
+      return {
+        name: person.name,
+        homeworld: homeworld.homeWorldName,
+        homeWorldPopulation: homeworld.homeWorldPopulation,
+        species: species
+      }
+    })
+    return Promise.all(unresolvedPromises)
   }
 
   fetchFilmScrollingText = async () => {
