@@ -6,9 +6,6 @@ import Card from './../Card/Card'
 class CardContainer extends Component {
   constructor({cardContainerType, people}) {
     super();
-    // this.state = {
-    //   numberOfCards: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
-    // }
   }
 
   displayCardBasedOnCategory = (cardContainerType) => {
