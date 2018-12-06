@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './../../main.scss';
 
 class Card extends Component {
-  constructor() {
+  constructor({name, species, homeWorldPopulation, homeworld}) {
     super()
     this.state = {
       displayMode: 'profile'
@@ -24,7 +24,7 @@ class Card extends Component {
           <div className='card-profile'>
             <button className='card-favorite'><i className="fas fa-heart"></i></button>
             <img className='card-image' src='https://moviewriternyu.files.wordpress.com/2015/07/chewy-2.png' alt='wookie' />
-            <h1>Name</h1>
+            <h3>{this.props.name}</h3>
           </div>
         </div>
       )      
@@ -35,16 +35,16 @@ class Card extends Component {
             <table className='card-info-table'>
               <tbody>
                 <tr>
-                  <th className='card-info-table-name'>Name</th>
+                  <th className='card-info-table-name'>{this.props.name}</th>
                 </tr>
                 <tr>
-                  <td className='card-info-table-species'>Species</td>
+                  <td className='card-info-table-species'>Species: {this.props.species}</td>
                 </tr>
                 <tr>
-                  <td className='card-info-table-language'>Language</td>              
+                  <td className='card-info-table-language'>Homeworld: {this.props.homeworld}</td>              
                 </tr>
                 <tr>
-                  <td className='card-info-table-data'>Data</td>              
+                  <td className='card-info-table-data'>Homeworld Population: {this.props.homeWorldPopulation}</td>              
                 </tr>
               </tbody>
             </table>

@@ -4,19 +4,20 @@ import Card from './../Card/Card'
 
 
 class CardContainer extends Component {
-  constructor(cardContainerType) {
+  constructor({cardContainerType, people}) {
     super();
-    this.state = {
-      numberOfCards: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
-    }
+    // this.state = {
+    //   numberOfCards: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+    // }
   }
 
   displayCardBasedOnCategory = (cardContainerType) => {
     if (cardContainerType === undefined) {
       return null
     } else if (cardContainerType === 'people')
-      return this.state.numberOfCards.map(card => {
-        return <Card />        
+      return this.props.people.map(card => {
+        console.log(card)
+        return <Card {...card}/>        
       })
   }
 
