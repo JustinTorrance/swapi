@@ -25,13 +25,23 @@ class App extends Component {
     this.fetchPeople()
   }
 
+
+
+
   fetchPersonSpecies = async (people) => {
     const unresolvedPromises = people.map(async person => {
       const response = await fetch(person.species)
       const data = await response.json()
-      return {person: person.name, species: data.name}
+      const homePlanet = await this.fetchHomePlanet(person)
+      return {person: person.name, species: data.name, homePlanet: homePlanet }
     })
     return Promise.all(unresolvedPromises)
+  }
+
+  fetchHomePlanet = async (person) => { 
+      const response = await fetch(person.homeworld)
+      const data = await response.json()
+      return Promise.resolve(data.name)
   }
 
   fetchPeople = async () => {
@@ -39,9 +49,7 @@ class App extends Component {
     const response = await fetch(url);
     const people = await response.json();
     const person = await this.fetchPersonSpecies(people.results)
-    this.setState({
-      person
-    })
+    this.setState({ person })
   }
 
   fetchFilmScrollingText = async () => {
