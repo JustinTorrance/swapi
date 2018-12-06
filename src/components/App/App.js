@@ -8,6 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      playButton: true,
       scrollingText: false,
       navigation: false,
       cardContainerType: '',
@@ -70,10 +71,13 @@ class App extends Component {
   }
 
   handleChangeScrollingTextState = () => {
-    this.setState({scrollingText: true})
+    this.setState({
+      playButton: false,
+      scrollingText: true
+    })
   }
 
-  handleChangeMainPageState = () => {
+  handleHamburgerButtonClick = () => {
     this.setState({
       scrollingText: false,
       navigation: true
@@ -81,7 +85,10 @@ class App extends Component {
   }
 
   handleNavigationClick = (event) => {
-    this.setState({cardContainerType: event.currentTarget.name})
+    this.setState({
+      cardContainerType: event.currentTarget.name,
+      navigation: false
+    })
   }
 
   returnScrollingTextOnStateChange = () => {
@@ -93,7 +100,7 @@ class App extends Component {
   }
 
   togglePlayButtonOnStateChange = () => {
-    if (!this.state.scrollingText && !this.state.navigation) {
+    if (this.state.playButton) {
       return <button className='play-button' onClick={() => this.handleChangeScrollingTextState() }><i className="fas fa-play play-button-icon"></i></button>      
     } else {
       return undefined
@@ -102,7 +109,7 @@ class App extends Component {
 
   toggleHamburgerButtonOnStateChange = () => {
     if (this.state.scrollingText) {
-      return <button className='hamburger-button' onClick={() => this.handleChangeMainPageState() }><i className="fas fa-bars hamburger-button-icon"></i></button>      
+      return <button className='hamburger-button' onClick={() => this.handleHamburgerButtonClick() }><i className="fas fa-bars hamburger-button-icon"></i></button>      
     } else {
       return undefined
     }
@@ -118,7 +125,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <h1 className='title'>SWAPIBox</h1>
         { this.toggleHamburgerButtonOnStateChange() }
         <h2 className='subtitle'>The Ultimate Star Wars Wiki</h2>
