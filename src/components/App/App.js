@@ -17,7 +17,7 @@ class App extends Component {
         title: '',
         body: ''
       },
-      characters: []
+      people: []
     }
   }
 
@@ -38,7 +38,7 @@ class App extends Component {
     const people = await response.json();
     const personData = await this.fetchNestedPeopleData(people.results)
     this.setState({
-      characters: personData
+      people: personData
     })
     return Promise.all(personData)
   }
@@ -145,7 +145,10 @@ class App extends Component {
         { this.togglePlayButtonOnStateChange() }
         { this.returnScrollingTextOnStateChange() }
         { this.renderNavigationOnStateChange() }
-        <CardContainer cardContainerType={this.state.cardContainerType} />
+        <CardContainer 
+          cardContainerType={this.state.cardContainerType} 
+          people={this.state.people}
+        />
       </div>
     );
   }
