@@ -11,7 +11,7 @@ class App extends Component {
       playButton: true,
       scrollingText: false,
       navigation: false,
-      cardCategory: 'people',
+      cardCategory: '',
       openingCrawl: {
         episode: '',
         title: '',
@@ -40,10 +40,10 @@ class App extends Component {
     const vehicleData = await response.json();
     const vehicles = vehicleData.results.map(vehicle => {
       return {
-        name: vehicle.name,
-        model: vehicle.model,
-        capacity: vehicle.passengers,
-        class: vehicle.vehicle_class
+        Name: vehicle.name,
+        Model: vehicle.model,
+        Capacity: vehicle.passengers,
+        Class: vehicle.vehicle_class
       }
     })
     this.setState({ vehicles })
@@ -84,10 +84,10 @@ class App extends Component {
       const homeworld = await this.fetchHomeWorld(person)
       const species = await this.fetchSpecies(person)
       return {
-        name: person.name,
-        homeworld: homeworld.homeWorldName,
-        homeWorldPopulation: homeworld.homeWorldPopulation,
-        species: species
+        Name: person.name,
+        Species: species,
+        Homeworld: homeworld.homeWorldName,
+        'Homeworld Population': homeworld.homeWorldPopulation
       }
     })
     return Promise.all(unresolvedPromises)
@@ -106,11 +106,11 @@ class App extends Component {
     const unresolvedPromises = await planets.map(async planet => {
       const planetResidents = await this.fetchPlanetResidents(planet.residents)
       return {
-        name: planet.name,
-        terrain: planet.terrain,
-        population: planet.population,
-        climate: planet.climate,
-        residents: planetResidents
+        Name: planet.name,
+        Terrain: planet.terrain,
+        Population: planet.population,
+        Climate: planet.climate,
+        Residents: planetResidents
       }
     })
     return Promise.all(unresolvedPromises)

@@ -9,10 +9,14 @@ class CardContainer extends Component {
   }
 
   displayCardBasedOnCategory = (cardCategory) => {
-    const cardCategoryData = this.props.getCardCategory(cardCategory)
-    return cardCategoryData.map((card, index) => {
-        return <Card {...card} cardCategory={this.props.cardCategory} key={index}/>        
-    })      
+    if (cardCategory) {
+      const cardCategoryData = this.props.getCardCategory(cardCategory)
+      return cardCategoryData.map((card, index) => {
+        return <Card card={card} cardCategory={this.props.cardCategory} key={index}/>        
+      })          
+    } else {
+      return null
+    }
   }
 
   render() {
