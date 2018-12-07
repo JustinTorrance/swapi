@@ -30,6 +30,27 @@ class App extends Component {
     this.fetchPlanets()
   }
 
+
+  storeData = () => {
+    // var storedVehicles = [];
+    // var storedPeople = [];
+    // var storedPlanets = [];
+
+    // if (JSON.parse(localStorage.getItem("correctCardsStorage"))) {
+    //   correctCards = JSON.parse(localStorage.getItem("correctCardsStorage")); 
+    //   correctCards.push(card);
+    //   localStorage.setItem('correctCardsStorage', JSON.stringify(correctCards));
+    // } else {
+    //   correctCards.push(card);
+      localStorage.setItem('storedPeople', JSON.stringify(this.state.people));
+      localStorage.setItem('storedVehicles', JSON.stringify(this.state.vehicles));
+      localStorage.setItem('storedPlanets', JSON.stringify(this.state.planets));
+
+    
+  }
+
+
+
   getCardCategory = (category) => {
     return this.state[category]      
   }
@@ -47,6 +68,7 @@ class App extends Component {
       }
     })
     this.setState({ vehicles })
+    this.storeData()
   } 
 
   fetchSpecies = async (person) => {
@@ -67,7 +89,7 @@ class App extends Component {
     this.setState({
       people: personData
     })
-    return Promise.all(personData)
+    this.storeData()
   }
 
   fetchHomeWorld = async (person) => { 
@@ -100,6 +122,7 @@ class App extends Component {
     const unresolvedPlanetsData = await this.fetchNestedPlanetData(planets.results);
     const planetsData = await Promise.all(unresolvedPlanetsData)
     this.setState({planets: planetsData})
+    this.storeData()
   }
 
   fetchNestedPlanetData = async (planets) => {
