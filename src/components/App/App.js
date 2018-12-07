@@ -187,7 +187,7 @@ class App extends Component {
   }
 
   toggleHamburgerButtonOnStateChange = () => {
-    if (this.state.scrollingText) {
+    if (!this.state.playButton && !this.state.navigation) {
       return <button className='hamburger-button' onClick={() => this.handleHamburgerButtonClick() }><i className="fas fa-bars hamburger-button-icon"></i></button>      
     } else {
       return undefined
