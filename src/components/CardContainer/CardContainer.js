@@ -4,32 +4,21 @@ import Card from './../Card/Card'
 
 
 class CardContainer extends Component {
-  constructor({cardContainerType, people, vehicles, planets}) {
+  constructor({cardCategory, getCardCategory}) {
     super();
   }
 
-  displayCardBasedOnCategory = (cardContainerType) => {
-    if (cardContainerType === undefined) {
-      return null
-    } else if (cardContainerType === 'people') {
-        return this.props.people.map(card => {
-          return <Card {...card} />        
-        })
-    } else if (cardContainerType === 'vehicles') {
-        return this.props.vehicles.map(card => {
-          return <Card {...card} />
-        })
-    } else if (cardContainerType === 'planets') {
-      return this.props.planets.map(card => {
-        return <Card {...card} />
-      })
-    }
+  displayCardBasedOnCategory = (cardCategory) => {
+    const cardCategoryData = this.props.getCardCategory(cardCategory)
+    return cardCategoryData.map((card, index) => {
+        return <Card {...card} cardCategory={this.props.cardCategory} key={index}/>        
+    })      
   }
 
   render() {
     return (
       <div className='CardContainer'>
-        {this.displayCardBasedOnCategory(this.props.cardContainerType)}
+        {this.displayCardBasedOnCategory(this.props.cardCategory)}
       </div>
     )
   }
