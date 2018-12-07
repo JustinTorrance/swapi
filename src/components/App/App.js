@@ -18,7 +18,8 @@ class App extends Component {
         body: ''
       },
       people: [],
-      vehicles: []
+      vehicles: [],
+      planets: []
     }
   }
 
@@ -26,6 +27,7 @@ class App extends Component {
     this.fetchFilmScrollingText()
     this.fetchPeople()
     this.fetchVehicles()
+    this.fetchPlanets()
   }
 
   fetchVehicles = async () => {
@@ -44,9 +46,13 @@ class App extends Component {
   } 
 
   fetchSpecies = async (person) => {
-    const response = await fetch(person.species)
-    const species = await response.json()
-    return species.name 
+    if (person.species[0]) {
+      const response = await fetch(person.species)
+      const species = await response.json()
+      return species.name       
+    } else {
+      return 'Unavailable'
+    }
   }
 
   fetchPeople = async () => {
@@ -81,6 +87,45 @@ class App extends Component {
       }
     })
     return Promise.all(unresolvedPromises)
+  }
+
+  fetchPlanets = async () => {
+    const url = 'https://swapi.co/api/planets/';
+    const response = await fetch(url);
+    const planets = await response.json();
+    const unresolvedPlanetsData = await this.fetchNestedPlanetData(planets.results);
+    const planetsData = await Promise.all(unresolvedPlanetsData)
+    this.setState({planets: planetsData})
+  }
+
+  fetchNestedPlanetData = async (planets) => {
+    const unresolvedPromises = await planets.map(async planet => {
+      const planetResidents = await this.fetchPlanetResidents(planet.residents)
+      return {
+        name: planet.name,
+        terrain: planet.terrain,
+        population: planet.population,
+        climate: planet.climate,
+        residents: planetResidents
+      }
+    })
+    return Promise.all(unresolvedPromises)
+  }
+
+  fetchPlanetResidents = async (residentsURL) => {
+    const residents = await residentsURL.map(async residentURL => {
+      const response = await fetch(residentURL);
+      const unresolvedResident = await response.json();
+      const homeworld = await this.fetchHomeWorld(unresolvedResident)
+      const species = await this.fetchSpecies(unresolvedResident)
+      return {
+        name: unresolvedResident.name,
+        homeworld: homeworld.homeWorldName,
+        homeWorldPopulation: homeworld.homeWorldPopulation,
+        species: species
+      }
+    })
+    return Promise.all(residents)      
   }
 
   fetchFilmScrollingText = async () => {
@@ -166,6 +211,7 @@ class App extends Component {
           cardContainerType={this.state.cardContainerType} 
           people={this.state.people}
           vehicles={this.state.vehicles}
+          planets={this.state.planets}
         />
       </div>
     );
