@@ -17,19 +17,36 @@ class App extends Component {
         title: '',
         body: ''
       },
-      people: []
+      people: [],
+      vehicles: []
     }
   }
 
   async componentDidMount() {
     this.fetchFilmScrollingText()
     this.fetchPeople()
+    this.fetchVehicles()
   }
 
+  fetchVehicles = async () => {
+    const url = 'https://swapi.co/api/vehicles/';
+    const response = await fetch(url);
+    const vehicleData = await response.json();
+    const vehicles = vehicleData.results.map(vehicle => {
+      return {
+        name: vehicle.name,
+        model: vehicle.model,
+        capacity: vehicle.passengers,
+        class: vehicle.vehicle_class
+      }
+    })
+    this.setState({ vehicles })
+  } 
+
   fetchSpecies = async (person) => {
-      const response = await fetch(person.species)
-      const species = await response.json()
-      return species.name 
+    const response = await fetch(person.species)
+    const species = await response.json()
+    return species.name 
   }
 
   fetchPeople = async () => {
@@ -148,6 +165,7 @@ class App extends Component {
         <CardContainer 
           cardContainerType={this.state.cardContainerType} 
           people={this.state.people}
+          vehicles={this.state.vehicles}
         />
       </div>
     );
