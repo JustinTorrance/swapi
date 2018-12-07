@@ -5,20 +5,16 @@ class Card extends Component {
   constructor({name, species, homeWorldPopulation, homeworld}) {
     super()
     this.state = {
-      displayMode: 'profile'
+      displayProfile: true
     }
   }
 
   handleCardClick = () => {
-    if (this.state.displayMode === 'profile') {
-      this.setState({displayMode: 'info'})      
-    } else if (this.state.displayMode === 'info') {
-      this.setState({displayMode: 'profile'})
-    }
+    this.setState({displayProfile: !this.state.displayProfile})
   }
 
   render() {
-    if(this.state.displayMode === 'profile') {
+    if(this.state.displayProfile) {
       return (
         <div className='Card' onClick={() => this.handleCardClick()}>
           <div className='card-profile'>
@@ -28,24 +24,16 @@ class Card extends Component {
           </div>
         </div>
       )      
-    } else if (this.state.displayMode === 'info') {
+    } else {
       return (
         <div className='Card' onClick={() => this.handleCardClick()}>
           <div className='card-info'>
             <table className='card-info-table'>
               <tbody>
-                <tr>
-                  <th className='card-info-table-name'>{this.props.name}</th>
-                </tr>
-                <tr>
-                  <td className='card-info-table-species'>Species: {this.props.species}</td>
-                </tr>
-                <tr>
-                  <td className='card-info-table-language'>Homeworld: {this.props.homeworld}</td>              
-                </tr>
-                <tr>
-                  <td className='card-info-table-data'>Homeworld Population: {this.props.homeWorldPopulation}</td>              
-                </tr>
+                <tr><th className='card-info-table-name'>{this.props.name}</th></tr>
+                <tr><td className='card-info-table-species'>Species: {this.props.species}</td></tr>
+                <tr><td className='card-info-table-language'>Homeworld: {this.props.homeworld}</td></tr>
+                <tr><td className='card-info-table-data'>Homeworld Population: {this.props.homeWorldPopulation}</td></tr>
               </tbody>
             </table>
           </div>
@@ -57,3 +45,4 @@ class Card extends Component {
 }
 
 export default Card;
+

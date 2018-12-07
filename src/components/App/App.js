@@ -11,7 +11,7 @@ class App extends Component {
       playButton: true,
       scrollingText: false,
       navigation: false,
-      cardContainerType: '',
+      cardCategory: 'people',
       openingCrawl: {
         episode: '',
         title: '',
@@ -28,6 +28,10 @@ class App extends Component {
     this.fetchPeople()
     this.fetchVehicles()
     this.fetchPlanets()
+  }
+
+  getCardCategory = (category) => {
+    return this.state[category]      
   }
 
   fetchVehicles = async () => {
@@ -161,7 +165,7 @@ class App extends Component {
 
   handleNavigationClick = (event) => {
     this.setState({
-      cardContainerType: event.currentTarget.name,
+      cardCategory: event.currentTarget.name,
       navigation: false
     })
   }
@@ -208,7 +212,8 @@ class App extends Component {
         { this.returnScrollingTextOnStateChange() }
         { this.renderNavigationOnStateChange() }
         <CardContainer 
-          cardContainerType={this.state.cardContainerType} 
+          cardCategory={this.state.cardCategory} 
+          getCardCategory={this.getCardCategory} 
           people={this.state.people}
           vehicles={this.state.vehicles}
           planets={this.state.planets}
