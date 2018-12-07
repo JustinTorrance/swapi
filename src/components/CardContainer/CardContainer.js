@@ -4,7 +4,7 @@ import Card from './../Card/Card'
 
 
 class CardContainer extends Component {
-  constructor({cardContainerType, people, vehicles}) {
+  constructor({cardContainerType, people, vehicles, planets}) {
     super();
   }
 

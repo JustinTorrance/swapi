@@ -1,9 +1,6 @@
 import React from 'react';
 import './../../main.scss';
 
-
-
-
 const ScrollingText = ({openingCrawl}) => {
   console.log('episode', openingCrawl.episode)
   return (
