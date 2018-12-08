@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './../../main.scss';
 
 class Card extends Component {
-  constructor({cardCategory, ...card}) {
+  constructor({addFavorite, cardCategory, ...card}) {
     super()
     this.state = {
       displayProfile: true
@@ -41,7 +41,7 @@ class Card extends Component {
     return (
       <div className='Card' onClick={() => this.handleCardClick()}>
         <div className='card-profile'>
-          <button className='card-favorite'><i className="fas fa-heart"></i></button>
+          <button onClick={() => this.props.addFavorite(this.props.card)} className='card-favorite'><i className="fas fa-heart"></i></button>
           <img className='card-image' src='https://moviewriternyu.files.wordpress.com/2015/07/chewy-2.png' alt='wookie' />
           <h3 className='card-profile-name'>{this.props.card.Name.toLowerCase()}</h3>
         </div>

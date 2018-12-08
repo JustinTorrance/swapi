@@ -4,7 +4,7 @@ import Card from './../Card/Card'
 
 
 class CardContainer extends Component {
-  constructor({cardCategory, getCardCategory}) {
+  constructor({cardCategory, getCardCategory, addFavorite}) {
     super();
   }
 
@@ -12,7 +12,7 @@ class CardContainer extends Component {
     if (cardCategory) {
       const cardCategoryData = this.props.getCardCategory(cardCategory)
       return cardCategoryData.map((card, index) => {
-        return <Card card={card} cardCategory={this.props.cardCategory} key={index}/>        
+        return <Card card={card} cardCategory={this.props.cardCategory} key={index} addFavorite={this.props.addFavorite}/>        
       })          
     } else {
       return null

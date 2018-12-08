@@ -20,13 +20,19 @@ class App extends Component {
       },
       people: [],
       vehicles: [],
-      planets: []
+      planets: [],
+      favorites: []
     }
   }
 
   async componentDidMount() {
     this.setFilmScrollingTextState()
     this.checkStorage()
+  }
+
+  addFavorite = (card) => {
+    const favorites = [...this.state.favorites, card]
+    this.setState({ favorites })
   }
 
   checkStorage = () => {
@@ -144,6 +150,7 @@ class App extends Component {
           people={this.state.people}
           vehicles={this.state.vehicles}
           planets={this.state.planets}
+          addFavorite={this.addFavorite}
         />
       </div>
     );
