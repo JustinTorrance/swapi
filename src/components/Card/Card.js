@@ -43,7 +43,7 @@ class Card extends Component {
         <div className='card-profile'>
           <button className='card-favorite'><i className="fas fa-heart"></i></button>
           <img className='card-image' src='https://moviewriternyu.files.wordpress.com/2015/07/chewy-2.png' alt='wookie' />
-          <h3>{this.props.card.Name}</h3>
+          <h3 className='card-profile-name'>{this.props.card.Name.toLowerCase()}</h3>
         </div>
       </div>
     ) 
