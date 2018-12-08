@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './../../main.scss'
+import * as API from './../../apiCalls.js'
 import ScrollingText from './../ScrollingText/ScrollingText'
 import Navigation from './../Navigation/Navigation'
 import CardContainer from './../CardContainer/CardContainer'
@@ -11,7 +12,7 @@ class App extends Component {
       playButton: true,
       scrollingText: false,
       navigation: false,
-      cardCategory: 'people',
+      cardCategory: '',
       openingCrawl: {
         episode: '',
         title: '',
@@ -24,129 +25,34 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    this.fetchFilmScrollingText()
-    this.fetchPeople()
-    this.fetchVehicles()
-    this.fetchPlanets()
+    this.setFilmScrollingTextState()
+    this.setPeopleState()
+    this.setVehiclesState()
+    this.setPlanetState()
+  }
+
+  setFilmScrollingTextState = async () => {
+    const openingCrawl = await API.fetchFilmScrollingText()
+    this.setState({ openingCrawl })
+  }
+
+  setPeopleState = async () => {
+    const people = await API.fetchPeople()
+    this.setState({ people })
+  }
+
+  setVehiclesState = async () => {
+    const vehicles = await API.fetchVehicles()
+    this.setState({ vehicles })
+  }
+
+  setPlanetState = async () => {
+    const planets = await API.fetchPlanets()
+    this.setState({ planets })
   }
 
   getCardCategory = (category) => {
     return this.state[category]      
-  }
-
-  fetchVehicles = async () => {
-    const url = 'https://swapi.co/api/vehicles/';
-    const response = await fetch(url);
-    const vehicleData = await response.json();
-    const vehicles = vehicleData.results.map(vehicle => {
-      return {
-        name: vehicle.name,
-        model: vehicle.model,
-        capacity: vehicle.passengers,
-        class: vehicle.vehicle_class
-      }
-    })
-    this.setState({ vehicles })
-  } 
-
-  fetchSpecies = async (person) => {
-    if (person.species[0]) {
-      const response = await fetch(person.species)
-      const species = await response.json()
-      return species.name       
-    } else {
-      return 'Unavailable'
-    }
-  }
-
-  fetchPeople = async () => {
-    const url = 'https://swapi.co/api/people/';
-    const response = await fetch(url);
-    const people = await response.json();
-    const personData = await this.fetchNestedPeopleData(people.results)
-    this.setState({
-      people: personData
-    })
-    return Promise.all(personData)
-  }
-
-  fetchHomeWorld = async (person) => { 
-    const response = await fetch(person.homeworld)
-    const world = await response.json()
-    return {
-      homeWorldName: world.name,
-      homeWorldPopulation: world.population
-    }
-  }
-
-  fetchNestedPeopleData = async (people) => {
-    const unresolvedPromises = await people.map(async person => {
-      const homeworld = await this.fetchHomeWorld(person)
-      const species = await this.fetchSpecies(person)
-      return {
-        name: person.name,
-        homeworld: homeworld.homeWorldName,
-        homeWorldPopulation: homeworld.homeWorldPopulation,
-        species: species
-      }
-    })
-    return Promise.all(unresolvedPromises)
-  }
-
-  fetchPlanets = async () => {
-    const url = 'https://swapi.co/api/planets/';
-    const response = await fetch(url);
-    const planets = await response.json();
-    const unresolvedPlanetsData = await this.fetchNestedPlanetData(planets.results);
-    const planetsData = await Promise.all(unresolvedPlanetsData)
-    this.setState({planets: planetsData})
-  }
-
-  fetchNestedPlanetData = async (planets) => {
-    const unresolvedPromises = await planets.map(async planet => {
-      const planetResidents = await this.fetchPlanetResidents(planet.residents)
-      return {
-        name: planet.name,
-        terrain: planet.terrain,
-        population: planet.population,
-        climate: planet.climate,
-        residents: planetResidents
-      }
-    })
-    return Promise.all(unresolvedPromises)
-  }
-
-  fetchPlanetResidents = async (residentsURL) => {
-    const residents = await residentsURL.map(async residentURL => {
-      const response = await fetch(residentURL);
-      const unresolvedResident = await response.json();
-      const homeworld = await this.fetchHomeWorld(unresolvedResident)
-      const species = await this.fetchSpecies(unresolvedResident)
-      return {
-        name: unresolvedResident.name,
-        homeworld: homeworld.homeWorldName,
-        homeWorldPopulation: homeworld.homeWorldPopulation,
-        species: species
-      }
-    })
-    return Promise.all(residents)      
-  }
-
-  fetchFilmScrollingText = async () => {
-    const randomizer = Math.ceil(Math.random() * 7);
-    const url = `https://swapi.co/api/films/${randomizer}/`;
-    const response = await fetch(url);
-    const film = await response.json();
-    const body = film.opening_crawl;
-    const episode = film.episode_id;
-    const title = film.title;
-      this.setState({ 
-        openingCrawl: {
-          episode: episode,
-          title: title,
-          body: body
-        }   
-      })
   }
 
   handleChangeScrollingTextState = () => {
