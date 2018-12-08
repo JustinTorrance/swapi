@@ -26,9 +26,30 @@ class App extends Component {
 
   async componentDidMount() {
     this.setFilmScrollingTextState()
-    this.setPeopleState()
-    this.setVehiclesState()
-    this.setPlanetState()
+    this.checkStorage()
+  }
+
+  checkStorage = () => {
+    const storedPeople = (JSON.parse(localStorage.getItem("storedPeople")))
+    const storedVehicles = (JSON.parse(localStorage.getItem("storedVehicles")))
+    const storedPlanets = (JSON.parse(localStorage.getItem("storedPlanets")))
+    if (storedPlanets && storedPeople && storedVehicles) { 
+      this.setState({
+        people: storedPeople,
+        planets: storedPlanets,
+        vehicles: storedVehicles
+      }) 
+    } else {
+        this.setPeopleState()
+        this.setVehiclesState()
+        this.setPlanetState() 
+    }
+  }
+
+  storeData = () => {
+      localStorage.setItem('storedPeople', JSON.stringify(this.state.people));
+      localStorage.setItem('storedVehicles', JSON.stringify(this.state.vehicles));
+      localStorage.setItem('storedPlanets', JSON.stringify(this.state.planets));   
   }
 
   setFilmScrollingTextState = async () => {
@@ -38,17 +59,17 @@ class App extends Component {
 
   setPeopleState = async () => {
     const people = await API.fetchPeople()
-    this.setState({ people })
+    this.setState({ people }, () => {this.storeData()})
   }
 
   setVehiclesState = async () => {
     const vehicles = await API.fetchVehicles()
-    this.setState({ vehicles })
+    this.setState({ vehicles }, () => {this.storeData()})
   }
 
   setPlanetState = async () => {
     const planets = await API.fetchPlanets()
-    this.setState({ planets })
+    this.setState({ planets }, () => {this.storeData()})
   }
 
   getCardCategory = (category) => {
