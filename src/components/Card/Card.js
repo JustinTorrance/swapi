@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './../../main.scss';
 
 class Card extends Component {
-  constructor({addFavorite, cardCategory, ...card}) {
+  constructor({addFavorite, removeFavorite, cardCategory, ...card}) {
     super()
     this.state = {
       displayProfile: true
@@ -11,6 +11,14 @@ class Card extends Component {
 
   handleCardClick = () => {
     this.setState({displayProfile: !this.state.displayProfile})
+  }
+
+  returnFavoriteButton = () => {
+    if (this.props.cardCategory === 'favorites') {
+      return <button onClick={() => this.props.removeFavorite(this.props.card)} className='card-favorite'>X</button>
+    } else {
+       return <button onClick={() => this.props.addFavorite(this.props.card)} className='card-favorite'><i className="fas fa-heart"></i></button>
+    }
   }
 
   returnInfoTableBasedOnCategory = (card) => {
@@ -39,9 +47,9 @@ class Card extends Component {
 
   returnProfileSideOfCard = () => {
     return (
-      <div className='Card' onClick={() => this.handleCardClick()}>
-        <div className='card-profile'>
-          <button onClick={() => this.props.addFavorite(this.props.card)} className='card-favorite'><i className="fas fa-heart"></i></button>
+      <div className='Card'>
+        { this.returnFavoriteButton() }
+        <div className='card-profile' onClick={() => this.handleCardClick()}>
           <img className='card-image' src='https://moviewriternyu.files.wordpress.com/2015/07/chewy-2.png' alt='wookie' />
           <h3 className='card-profile-name'>{this.props.card.Name.toLowerCase()}</h3>
         </div>
@@ -51,8 +59,8 @@ class Card extends Component {
 
   returnInfoSideOfCard = (card) => {
     return (
-      <div className='Card' onClick={() => this.handleCardClick()}>
-        <div className='card-info'>
+      <div className='Card'>
+        <div className='card-info' onClick={() => this.handleCardClick()}>
           { this.returnInfoTableBasedOnCategory(card) }
         </div>
       </div>
