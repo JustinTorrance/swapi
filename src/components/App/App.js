@@ -30,6 +30,14 @@ class App extends Component {
     this.checkStorage()
   }
 
+  removeFavorite = (card) => {
+    console.log(card.Name)
+    const favorites = this.state.favorites.filter(favorite => {
+      return favorite.Name !== card.Name;
+    })
+    this.setState({ favorites })
+  }
+
   addFavorite = (card) => {
     const favorites = [...this.state.favorites, card]
     this.setState({ favorites })
@@ -129,7 +137,10 @@ class App extends Component {
 
   renderNavigationOnStateChange = () => {
     if (this.state.navigation) {
-      return <Navigation  handleNavigationClick={this.handleNavigationClick}/>
+      return  (<Navigation  
+                handleNavigationClick={this.handleNavigationClick}
+                favorites={this.state.favorites}
+              />)
     } else {
       return undefined
     }
@@ -152,6 +163,7 @@ class App extends Component {
           planets={this.state.planets}
           favorites={this.state.favorites}
           addFavorite={this.addFavorite}
+          removeFavorite={this.removeFavorite}
         />
       </div>
     );
