@@ -150,6 +150,7 @@ class App extends Component {
           people={this.state.people}
           vehicles={this.state.vehicles}
           planets={this.state.planets}
+          favorites={this.state.favorites}
           addFavorite={this.addFavorite}
         />
       </div>

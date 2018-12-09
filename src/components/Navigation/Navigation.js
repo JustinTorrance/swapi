@@ -5,7 +5,7 @@ const Navigation = ({handleNavigationClick}) => {
   return (
     <div className='Navigation'>
       <button className='navigation-button navigation-button-fav'  
-              name='favorite'  
+              name='favorites'  
               onClick={(event) => handleNavigationClick(event)}>
                 <i className="fas fa-heart navigation-button-icon"></i>
               </button>                      
