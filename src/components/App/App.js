@@ -31,7 +31,6 @@ class App extends Component {
   }
 
   removeFavorite = (card) => {
-    console.log(card.Name)
     const favorites = this.state.favorites.filter(favorite => {
       return favorite.Name !== card.Name;
     })
@@ -39,8 +38,10 @@ class App extends Component {
   }
 
   addFavorite = (card) => {
-    const favorites = [...this.state.favorites, card]
-    this.setState({ favorites })
+    if (!this.state.favorites.includes(card)) {
+      const favorites = [...this.state.favorites, card];
+      this.setState({ favorites })
+    }
   }
 
   checkStorage = () => {
