@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './../../main.scss';
-import Card from './../Card/Card'
+import Card from './../Card/Card';
 
 
 class CardContainer extends Component {
