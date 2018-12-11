@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './../../main.scss'
 import App from './../App/App.js'
 
-const Navigation = ({handleNavigationClick, favorites}) => {
+const Navigation = ({handleNavigationClick, favorites, removeFavorite}) => {
   return (
     <div className='Navigation'>
       <button className='navigation-button navigation-button-fav'><NavLink to='/favorites' 
