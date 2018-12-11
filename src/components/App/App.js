@@ -151,7 +151,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <h1 className='main-title'>swapibox</h1>
+        <h1 className='main-title'>swapibox</h1> 
         { this.toggleHamburgerButtonOnStateChange() }
         <h2 className='subtitle'>the ultimate Star Wars Wiki</h2>
         { this.togglePlayButtonOnStateChange() }
@@ -161,7 +161,8 @@ class App extends Component {
           <Route exact path='/navigation' render={(props) => <Navigation handleNavigationClick={this.handleNavigationClick} favorites={this.state.favorites} />} />
           <Route exact path='/favorites' render={(props) => <CardContainer  cardCategory={this.state.cardCategory}
                                                                             getCardCategory={this.getCardCategory}
-                                                                            addFavorite={this.addFavorite} /> } />
+                                                                            addFavorite={this.addFavorite} 
+                                                                            removeFavorite={this.removeFavorite}/> } />
           <Route exact path='/people' render={(props) => <CardContainer  cardCategory={this.state.cardCategory}
                                                                           getCardCategory={this.getCardCategory}
                                                                           addFavorite={this.addFavorite} /> } />
