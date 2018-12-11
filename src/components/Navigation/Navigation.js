@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './../../main.scss'
-import App from './../App/App.js'
 
 const Navigation = ({handleNavigationClick, favorites, removeFavorite}) => {
   return (
