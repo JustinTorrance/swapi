@@ -158,17 +158,17 @@ class App extends Component {
         { this.returnScrollingTextOnStateChange() }
         <Switch>
           <Route exact path='/scrolling-text' render={(props) => <ScrollingText openingCrawl={this.state.openingCrawl} />} />
-          <Route exact path='/navigation' render={(props) => <Navigation handleNavigationClick={this.handleNavigationClick} />} />
-          <Route exact path='/favorites' render={(ligma) => <CardContainer  cardCategory={this.state.cardCategory}
+          <Route exact path='/navigation' render={(props) => <Navigation handleNavigationClick={this.handleNavigationClick} favorites={this.state.favorites} />} />
+          <Route exact path='/favorites' render={(props) => <CardContainer  cardCategory={this.state.cardCategory}
                                                                             getCardCategory={this.getCardCategory}
                                                                             addFavorite={this.addFavorite} /> } />
-          <Route exact path='/people' render={(ligma) => <CardContainer  cardCategory={this.state.cardCategory}
+          <Route exact path='/people' render={(props) => <CardContainer  cardCategory={this.state.cardCategory}
                                                                           getCardCategory={this.getCardCategory}
                                                                           addFavorite={this.addFavorite} /> } />
-          <Route exact path='/planets' render={(ligma) => <CardContainer  cardCategory={this.state.cardCategory}
+          <Route exact path='/planets' render={(props) => <CardContainer  cardCategory={this.state.cardCategory}
                                                                           getCardCategory={this.getCardCategory}
                                                                           addFavorite={this.addFavorite} /> } />
-          <Route exact path='/vehicles' render={(ligma) => <CardContainer  cardCategory={this.state.cardCategory}
+          <Route exact path='/vehicles' render={(props) => <CardContainer  cardCategory={this.state.cardCategory}
                                                                           getCardCategory={this.getCardCategory}
                                                                           addFavorite={this.addFavorite} /> } />
       </Switch>

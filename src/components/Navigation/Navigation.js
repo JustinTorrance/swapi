@@ -10,7 +10,7 @@ const Navigation = ({handleNavigationClick, favorites}) => {
               name='favorites'  
               onClick={(event) => handleNavigationClick(event)}>
                 <i className="fas fa-heart navigation-button-icon"></i>
-                <p>{favorites.length}</p>
+                <p className='favorites-count'>{favorites.length}</p>
               </NavLink></button>                      
       <button className='navigation-button navigation-button-people'><NavLink to='/people'
               name='people' 
