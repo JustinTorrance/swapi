@@ -36,6 +36,7 @@ export const fetchNestedPeopleData = async (people) => {
 }
 
 export const fetchVehicles = async () => {
+  console.log('lmao')
   const url = 'https://swapi.co/api/vehicles/';
   const response = await fetch(url);
   const vehicleData = await response.json();
