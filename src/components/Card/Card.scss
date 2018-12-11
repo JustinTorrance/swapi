@@ -3,6 +3,14 @@
   border: 4px solid #fff;
   border-radius: 20px;
   width: 100%;
+  transition: background-color 300ms,
+              background-blend-mode 300ms;
+
+  &:hover {
+    background-color: rgba(245, 245, 245, 0.2);
+    background-blend-mode: lighten;
+    cursor: pointer;
+  }
 }
 
 .card-favorite {
