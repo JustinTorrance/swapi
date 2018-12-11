@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, Switch, NavLink } from 'react-router-dom'
 import './../../main.scss'
 import * as API from './../../apiCalls.js'
 import ScrollingText from './../ScrollingText/ScrollingText'
@@ -121,7 +122,7 @@ class App extends Component {
 
   togglePlayButtonOnStateChange = () => {
     if (this.state.playButton) {
-      return <button className='play-button' onClick={() => this.handleChangeScrollingTextState() }><i className="fas fa-play play-button-icon"></i></button>      
+      return <button className='play-button'><NavLink to='/scrolling-text' onClick={() => this.handleChangeScrollingTextState() }><i className="fas fa-play play-button-icon"></i></NavLink></button>      
     } else {
       return undefined
     }
@@ -129,7 +130,7 @@ class App extends Component {
 
   toggleHamburgerButtonOnStateChange = () => {
     if (!this.state.playButton && !this.state.navigation) {
-      return <button className='hamburger-button' onClick={() => this.handleHamburgerButtonClick() }><i className="fas fa-bars hamburger-button-icon"></i></button>      
+      return <button className='hamburger-button'><NavLink to='/navigation' onClick={() => this.handleHamburgerButtonClick() }><i className="fas fa-bars hamburger-button-icon"></i></NavLink></button>      
     } else {
       return undefined
     }
@@ -137,10 +138,14 @@ class App extends Component {
 
   renderNavigationOnStateChange = () => {
     if (this.state.navigation) {
+<<<<<<< HEAD
       return  (<Navigation  
                 handleNavigationClick={this.handleNavigationClick}
                 favorites={this.state.favorites}
               />)
+=======
+      return <Navigation getCardCategory={this.getCardCategory} />
+>>>>>>> Add react router links
     } else {
       return undefined
     }
@@ -154,6 +159,7 @@ class App extends Component {
         <h2 className='subtitle'>the ultimate Star Wars Wiki</h2>
         { this.togglePlayButtonOnStateChange() }
         { this.returnScrollingTextOnStateChange() }
+<<<<<<< HEAD
         { this.renderNavigationOnStateChange() }
         <CardContainer 
           cardCategory={this.state.cardCategory} 
@@ -165,6 +171,24 @@ class App extends Component {
           addFavorite={this.addFavorite}
           removeFavorite={this.removeFavorite}
         />
+=======
+        <Switch>
+          <Route exact path='/scrolling-text' render={(props) => <ScrollingText openingCrawl={this.state.openingCrawl} />} />
+          <Route exact path='/navigation' render={(props) => <Navigation handleNavigationClick={this.handleNavigationClick} />} />
+          <Route exact path='/favorites' render={(ligma) => <CardContainer  cardCategory={this.state.cardCategory}
+                                                                            getCardCategory={this.getCardCategory}
+                                                                            addFavorite={this.addFavorite} /> } />
+          <Route exact path='/people' render={(ligma) => <CardContainer  cardCategory={this.state.cardCategory}
+                                                                          getCardCategory={this.getCardCategory}
+                                                                          addFavorite={this.addFavorite} /> } />
+          <Route exact path='/planets' render={(ligma) => <CardContainer  cardCategory={this.state.cardCategory}
+                                                                          getCardCategory={this.getCardCategory}
+                                                                          addFavorite={this.addFavorite} /> } />
+          <Route exact path='/vehicles' render={(ligma) => <CardContainer  cardCategory={this.state.cardCategory}
+                                                                          getCardCategory={this.getCardCategory}
+                                                                          addFavorite={this.addFavorite} /> } />
+      </Switch>
+>>>>>>> Add react router links
       </div>
     );
   }
