@@ -139,14 +139,10 @@ class App extends Component {
 
   renderNavigationOnStateChange = () => {
     if (this.state.navigation) {
-<<<<<<< HEAD
       return  (<Navigation  
                 handleNavigationClick={this.handleNavigationClick}
                 favorites={this.state.favorites}
               />)
-=======
-      return <Navigation getCardCategory={this.getCardCategory} />
->>>>>>> Add react router links
     } else {
       return undefined
     }
@@ -160,19 +156,6 @@ class App extends Component {
         <h2 className='subtitle'>the ultimate Star Wars Wiki</h2>
         { this.togglePlayButtonOnStateChange() }
         { this.returnScrollingTextOnStateChange() }
-<<<<<<< HEAD
-        { this.renderNavigationOnStateChange() }
-        <CardContainer 
-          cardCategory={this.state.cardCategory} 
-          getCardCategory={this.getCardCategory} 
-          people={this.state.people}
-          vehicles={this.state.vehicles}
-          planets={this.state.planets}
-          favorites={this.state.favorites}
-          addFavorite={this.addFavorite}
-          removeFavorite={this.removeFavorite}
-        />
-=======
         <Switch>
           <Route exact path='/scrolling-text' render={(props) => <ScrollingText openingCrawl={this.state.openingCrawl} />} />
           <Route exact path='/navigation' render={(props) => <Navigation handleNavigationClick={this.handleNavigationClick} />} />
@@ -189,7 +172,6 @@ class App extends Component {
                                                                           getCardCategory={this.getCardCategory}
                                                                           addFavorite={this.addFavorite} /> } />
       </Switch>
->>>>>>> Add react router links
       </div>
     );
   }
