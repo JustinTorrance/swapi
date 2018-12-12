@@ -43,30 +43,6 @@ describe('App', () => {
     wrapper.instance().removeFavorite(mockedFavorite)
     expect(wrapper.state('favorites')).toEqual(expected)
   })
-  it('should invoke fetchFilmScrollingText', async () => {
-    const wrapper = shallow(<App />)
-    API.fetchFilmScrollingText = jest.fn()
-    wrapper.instance().setFilmScrollingTextState()
-    expect(API.fetchFilmScrollingText).toHaveBeenCalled()
-  })
-  it('should invoke fetchPeople', async () => {
-    const wrapper = shallow(<App />)
-    API.fetchPeople = jest.fn()
-    wrapper.instance().setPeopleState()
-    expect(API.fetchPeople).toHaveBeenCalled()
-  })
-  it('should invoke fetchVehicles', async () => {
-    const wrapper = shallow(<App />)
-    API.fetchVehicles = jest.fn()
-    wrapper.instance().setVehiclesState()
-    expect(API.fetchVehicles).toHaveBeenCalled()
-  })
-  it('should invoke fetchPlanets', async () => {
-    const wrapper = shallow(<App />)
-    API.fetchPlanets = jest.fn()
-    wrapper.instance().setPlanetState()
-    expect(API.fetchPlanets).toHaveBeenCalled()
-  })
   it('should return category from App state', () => {
     const wrapper = shallow(<App />)
     const mockCategory = {'people': 'person'}
