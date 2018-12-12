@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './../../main.scss';
 
-class Card extends Component {
+class Card extends Component {  
   constructor({addFavorite, removeFavorite, cardCategory, ...card}) {
     super()
     this.state = {

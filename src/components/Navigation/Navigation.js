@@ -32,3 +32,4 @@ const Navigation = ({handleNavigationClick, favorites, removeFavorite}) => {
 }
 
 export default Navigation
+
