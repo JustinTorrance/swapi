@@ -1,44 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SWapiBox
 
-## Available Scripts
+SWapiBox is an aggregation of Star Wars data from the [Star Wars api](https://swapi.co/) presented in a Star Wars themed React app, and designed to be uncomplicated to use without loosing its charm. 
 
-In the project directory, you can run:
+##
 
-### `npm start`
+### Setup
+```
+git clone https://github.com/JustinTorrance/swapi.git
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+cd swapi
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+npm install 
 
-### `npm test`
+npm start
+```
+### Tech Stack
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React, React Router
+* Sass
+* Enzyme, Jest
 
-### `npm run build`
+### Current Design
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="1552" alt="screen shot 2018-12-11 at 9 01 49 pm" src="https://user-images.githubusercontent.com/28921373/49846362-1e44b900-fd88-11e8-986a-3c01f1bb1455.png">
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+<img width="1552" alt="screen shot 2018-12-11 at 9 02 26 pm" src="https://user-images.githubusercontent.com/28921373/49846401-46ccb300-fd88-11e8-85e0-949db6624d38.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="1552" alt="screen shot 2018-12-11 at 9 02 05 pm" src="https://user-images.githubusercontent.com/28921373/49846425-5ea43700-fd88-11e8-88e4-e41d2647ab5b.png">
 
-### `npm run eject`
+### Wireframes 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Hosted on [Figma](https://www.figma.com/file/frums6rPXSMYAyyjj1b2eSVY/SWAPibox?node-id=0%3A1)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Developers
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Justin Torrance [GitHub](https://github.com/JustinTorrance) [LinkedIn](https://www.linkedin.com/in/justintorrance/)
+* Joel Smith [GitHub](https://github.com/JoelSmith123) [LinkedIn](https://www.linkedin.com/in/joelsmith123/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
