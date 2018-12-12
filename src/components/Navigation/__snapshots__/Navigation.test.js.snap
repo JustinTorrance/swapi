@@ -1,0 +1,641 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation should match snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Navigation
+    favorites={Array []}
+    handleNavigationClick={[MockFunction]}
+    removeFavorite={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <button
+          className="navigation-button navigation-button-fav"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            name="favorites"
+            onClick={[Function]}
+            to="/favorites"
+          >
+            <i
+              className="fas fa-heart navigation-button-icon"
+            />
+            <p
+              className="favorites-count"
+            >
+              0
+            </p>
+          </NavLink>
+        </button>,
+        <button
+          className="navigation-button navigation-button-people"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            name="people"
+            onClick={[Function]}
+            to="/people"
+          >
+            <i
+              className="fas fa-users navigation-button-icon"
+            />
+          </NavLink>
+        </button>,
+        <button
+          className="navigation-button navigation-button-planets"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            name="planets"
+            onClick={[Function]}
+            to="/planets"
+          >
+            <i
+              className="fas fa-globe-asia navigation-button-icon"
+            />
+          </NavLink>
+        </button>,
+        <button
+          className="navigation-button navigation-button-vehicles"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            name="vehicles"
+            onClick={[Function]}
+            to="/vehicles"
+          >
+            <i
+              className="fas fa-motorcycle navigation-button-icon"
+            />
+          </NavLink>
+        </button>,
+      ],
+      "className": "Navigation",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <NavLink
+            activeClassName="active"
+            aria-current="page"
+            name="favorites"
+            onClick={[Function]}
+            to="/favorites"
+          >
+            <i
+              className="fas fa-heart navigation-button-icon"
+            />
+            <p
+              className="favorites-count"
+            >
+              0
+            </p>
+          </NavLink>,
+          "className": "navigation-button navigation-button-fav",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": Array [
+              <i
+                className="fas fa-heart navigation-button-icon"
+              />,
+              <p
+                className="favorites-count"
+              >
+                0
+              </p>,
+            ],
+            "name": "favorites",
+            "onClick": [Function],
+            "to": "/favorites",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fas fa-heart navigation-button-icon",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": 0,
+                "className": "favorites-count",
+              },
+              "ref": null,
+              "rendered": 0,
+              "type": "p",
+            },
+          ],
+          "type": [Function],
+        },
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <NavLink
+            activeClassName="active"
+            aria-current="page"
+            name="people"
+            onClick={[Function]}
+            to="/people"
+          >
+            <i
+              className="fas fa-users navigation-button-icon"
+            />
+          </NavLink>,
+          "className": "navigation-button navigation-button-people",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <i
+              className="fas fa-users navigation-button-icon"
+            />,
+            "name": "people",
+            "onClick": [Function],
+            "to": "/people",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "fas fa-users navigation-button-icon",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          "type": [Function],
+        },
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <NavLink
+            activeClassName="active"
+            aria-current="page"
+            name="planets"
+            onClick={[Function]}
+            to="/planets"
+          >
+            <i
+              className="fas fa-globe-asia navigation-button-icon"
+            />
+          </NavLink>,
+          "className": "navigation-button navigation-button-planets",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <i
+              className="fas fa-globe-asia navigation-button-icon"
+            />,
+            "name": "planets",
+            "onClick": [Function],
+            "to": "/planets",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "fas fa-globe-asia navigation-button-icon",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          "type": [Function],
+        },
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <NavLink
+            activeClassName="active"
+            aria-current="page"
+            name="vehicles"
+            onClick={[Function]}
+            to="/vehicles"
+          >
+            <i
+              className="fas fa-motorcycle navigation-button-icon"
+            />
+          </NavLink>,
+          "className": "navigation-button navigation-button-vehicles",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <i
+              className="fas fa-motorcycle navigation-button-icon"
+            />,
+            "name": "vehicles",
+            "onClick": [Function],
+            "to": "/vehicles",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "fas fa-motorcycle navigation-button-icon",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          "type": [Function],
+        },
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <button
+            className="navigation-button navigation-button-fav"
+          >
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              name="favorites"
+              onClick={[Function]}
+              to="/favorites"
+            >
+              <i
+                className="fas fa-heart navigation-button-icon"
+              />
+              <p
+                className="favorites-count"
+              >
+                0
+              </p>
+            </NavLink>
+          </button>,
+          <button
+            className="navigation-button navigation-button-people"
+          >
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              name="people"
+              onClick={[Function]}
+              to="/people"
+            >
+              <i
+                className="fas fa-users navigation-button-icon"
+              />
+            </NavLink>
+          </button>,
+          <button
+            className="navigation-button navigation-button-planets"
+          >
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              name="planets"
+              onClick={[Function]}
+              to="/planets"
+            >
+              <i
+                className="fas fa-globe-asia navigation-button-icon"
+              />
+            </NavLink>
+          </button>,
+          <button
+            className="navigation-button navigation-button-vehicles"
+          >
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              name="vehicles"
+              onClick={[Function]}
+              to="/vehicles"
+            >
+              <i
+                className="fas fa-motorcycle navigation-button-icon"
+              />
+            </NavLink>
+          </button>,
+        ],
+        "className": "Navigation",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <NavLink
+              activeClassName="active"
+              aria-current="page"
+              name="favorites"
+              onClick={[Function]}
+              to="/favorites"
+            >
+              <i
+                className="fas fa-heart navigation-button-icon"
+              />
+              <p
+                className="favorites-count"
+              >
+                0
+              </p>
+            </NavLink>,
+            "className": "navigation-button navigation-button-fav",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": Array [
+                <i
+                  className="fas fa-heart navigation-button-icon"
+                />,
+                <p
+                  className="favorites-count"
+                >
+                  0
+                </p>,
+              ],
+              "name": "favorites",
+              "onClick": [Function],
+              "to": "/favorites",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fas fa-heart navigation-button-icon",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "i",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": 0,
+                  "className": "favorites-count",
+                },
+                "ref": null,
+                "rendered": 0,
+                "type": "p",
+              },
+            ],
+            "type": [Function],
+          },
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <NavLink
+              activeClassName="active"
+              aria-current="page"
+              name="people"
+              onClick={[Function]}
+              to="/people"
+            >
+              <i
+                className="fas fa-users navigation-button-icon"
+              />
+            </NavLink>,
+            "className": "navigation-button navigation-button-people",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <i
+                className="fas fa-users navigation-button-icon"
+              />,
+              "name": "people",
+              "onClick": [Function],
+              "to": "/people",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fas fa-users navigation-button-icon",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            "type": [Function],
+          },
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <NavLink
+              activeClassName="active"
+              aria-current="page"
+              name="planets"
+              onClick={[Function]}
+              to="/planets"
+            >
+              <i
+                className="fas fa-globe-asia navigation-button-icon"
+              />
+            </NavLink>,
+            "className": "navigation-button navigation-button-planets",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <i
+                className="fas fa-globe-asia navigation-button-icon"
+              />,
+              "name": "planets",
+              "onClick": [Function],
+              "to": "/planets",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fas fa-globe-asia navigation-button-icon",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            "type": [Function],
+          },
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <NavLink
+              activeClassName="active"
+              aria-current="page"
+              name="vehicles"
+              onClick={[Function]}
+              to="/vehicles"
+            >
+              <i
+                className="fas fa-motorcycle navigation-button-icon"
+              />
+            </NavLink>,
+            "className": "navigation-button navigation-button-vehicles",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <i
+                className="fas fa-motorcycle navigation-button-icon"
+              />,
+              "name": "vehicles",
+              "onClick": [Function],
+              "to": "/vehicles",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fas fa-motorcycle navigation-button-icon",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            "type": [Function],
+          },
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

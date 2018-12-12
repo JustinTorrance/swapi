@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './../../main.scss';
+import PropTypes from 'prop-types';
 
-class Card extends Component {
+
+class Card extends Component {  
   constructor({addFavorite, removeFavorite, cardCategory, ...card}) {
     super()
     this.state = {
@@ -91,7 +93,12 @@ class Card extends Component {
       return this.returnInfoSideOfCard(this.props.card)
     } 
   }
+}
 
+Card.propTypes = {
+  addFavorite: PropTypes.func.isRequired,
+  removeFavorite: PropTypes.func.isRequired,
+  cardCategory: PropTypes.string.isRequired,
 }
 
 export default Card;

@@ -1,5 +1,7 @@
 import React from 'react';
 import './../../main.scss';
+import PropTypes from 'prop-types';
+
 
 const ScrollingText = ({openingCrawl}) => {
   return (
@@ -16,6 +18,10 @@ const ScrollingText = ({openingCrawl}) => {
       </section>
     </div>
   )
+}
+
+ScrollingText.propTypes = {
+  openingCrawl: PropTypes.object.isRequired,
 }
 
 export default ScrollingText;
