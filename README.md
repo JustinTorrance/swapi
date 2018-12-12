@@ -1,6 +1,6 @@
 # SWapiBox
 
-SWapiBox is an aggregation of Star Wars data from the [Star Wars api](https://swapi.co/) presented in a Star Wars themed React app, and designed to be uncomplicated to use without loosing its charm. 
+SWapiBox is an aggregation of Star Wars data from the [Star Wars api](https://swapi.co/) presented in a Star Wars themed React app, and designed to be uncomplicated to use without losing its charm. 
 
 ##
 
