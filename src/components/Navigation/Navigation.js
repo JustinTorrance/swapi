@@ -4,7 +4,6 @@ import './../../main.scss';
 import App from './../App/App.js';
 import PropTypes from 'prop-types';
 
-
 const Navigation = ({handleNavigationClick, favorites, removeFavorite}) => {
   return (
     <div className='Navigation'>

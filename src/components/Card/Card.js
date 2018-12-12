@@ -7,7 +7,8 @@ class Card extends Component {
   constructor({addFavorite, removeFavorite, cardCategory, ...card}) {
     super()
     this.state = {
-      displayProfile: true
+      displayProfile: true,
+      activeBtn: false
     }
   }
 
@@ -15,11 +16,27 @@ class Card extends Component {
     this.setState({displayProfile: !this.state.displayProfile})
   }
 
+  handleFavoriteClick = () => {
+    this.setState({activeBtn: true})
+  }
+
   returnFavoriteButton = () => {
     if (this.props.cardCategory === 'favorites') {
-      return <button onClick={() => this.props.removeFavorite(this.props.card)} className='card-favorite'>X</button>
+      return <button 
+              onClick={() => this.props.removeFavorite(this.props.card)} 
+              className='card-favorite'>
+              <p className='card-favorite-delete-icon' >X</p>
+              </button>
     } else {
-       return <button onClick={() => this.props.addFavorite(this.props.card)} className='card-favorite'><i className="fas fa-heart"></i></button>
+       return <button 
+              onClick={() => this.props.addFavorite(this.props.card)} 
+              className='card-favorite'>
+              <i 
+                onClick={() => this.handleFavoriteClick()} 
+                className={this.state.activeBtn ? "card-favorite-icon card-favorite-icon-active fas fa-heart" : 'card-favorite-icon fas fa-heart'}
+                >
+              </i>
+              </button>
     }
   }
 

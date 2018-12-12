@@ -14,9 +14,37 @@
 }
 
 .card-favorite {
+  background: transparent;
+  border: none;
   float: right;
-  margin: 10px;
-  margin-left: 100%;
+  margin: 12px 10px 0 100%;
+  outline: none;
+
+  * {
+    color: #fff;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.card-favorite-icon {
+  font-size: 1.5rem;
+}
+
+.card-favorite-icon-active {
+  color: #ff0000;
+}
+
+.card-favorite-delete-icon {
+  font-size: 2rem;
+  margin: 0 5px 0 0;
+  transition: color 200ms;
+
+  &:hover {
+  color: #ff0000;
+  }
 }
 
 .card-image {
