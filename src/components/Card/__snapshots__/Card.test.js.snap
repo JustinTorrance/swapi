@@ -35,7 +35,8 @@ ShallowWrapper {
           onClick={[Function]}
         >
           <i
-            className="fas fa-heart"
+            className="card-favorite-icon fas fa-heart"
+            onClick={[Function]}
           />
         </button>,
         <div
@@ -64,7 +65,8 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <i
-            className="fas fa-heart"
+            className="card-favorite-icon fas fa-heart"
+            onClick={[Function]}
           />,
           "className": "card-favorite",
           "onClick": [Function],
@@ -75,7 +77,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "className": "fas fa-heart",
+            "className": "card-favorite-icon fas fa-heart",
+            "onClick": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -148,7 +151,8 @@ ShallowWrapper {
             onClick={[Function]}
           >
             <i
-              className="fas fa-heart"
+              className="card-favorite-icon fas fa-heart"
+              onClick={[Function]}
             />
           </button>,
           <div
@@ -177,7 +181,8 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <i
-              className="fas fa-heart"
+              className="card-favorite-icon fas fa-heart"
+              onClick={[Function]}
             />,
             "className": "card-favorite",
             "onClick": [Function],
@@ -188,7 +193,8 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "className": "fas fa-heart",
+              "className": "card-favorite-icon fas fa-heart",
+              "onClick": [Function],
             },
             "ref": null,
             "rendered": null,

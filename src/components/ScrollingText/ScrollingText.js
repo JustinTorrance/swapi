@@ -10,7 +10,7 @@ const ScrollingText = ({openingCrawl}) => {
       <section className="star-wars">
         <div className="crawl">
           <div className="title">
-            <p>{openingCrawl.episode}</p>
+            <p>Episode {openingCrawl.episode}</p>
             <h1>{openingCrawl.title}</h1>
           </div>    
           <p>{openingCrawl.body}</p>
