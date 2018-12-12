@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './../../main.scss';
 import Card from './../Card/Card';
+import PropTypes from 'prop-types';
 
 
 class CardContainer extends Component {
@@ -30,6 +31,12 @@ class CardContainer extends Component {
       </div>
     )
   }
+}
+
+CardContainer.propTypes = {
+  getCardCategory: PropTypes.func.isRequired,
+  addFavorite: PropTypes.func.isRequired,
+  removeFavorite: PropTypes.func,
 }
 
 export default CardContainer;

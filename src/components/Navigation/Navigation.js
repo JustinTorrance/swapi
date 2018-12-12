@@ -1,7 +1,9 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import './../../main.scss'
-import App from './../App/App.js'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './../../main.scss';
+import App from './../App/App.js';
+import PropTypes from 'prop-types';
+
 
 const Navigation = ({handleNavigationClick, favorites, removeFavorite}) => {
   return (
@@ -29,6 +31,12 @@ const Navigation = ({handleNavigationClick, favorites, removeFavorite}) => {
               </NavLink></button>
     </div>
   )
+}
+
+Navigation.propTypes = {
+  handleNavigationClick: PropTypes.func.isRequired,
+  favorites: PropTypes.array.isRequired,
+  removeFavorite: PropTypes.func,
 }
 
 export default Navigation
